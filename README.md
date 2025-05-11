@@ -117,6 +117,7 @@ The frontend is built with **React.js** and provides a user interface for managi
 3. Set up environment variables:
 
    * Create a `.env` file and add any necessary configuration (e.g., API URL).
+   add following: VITE_BACKEND_BASE_URL='http://localhost:3000'
 
 ### Running the Frontend
 
