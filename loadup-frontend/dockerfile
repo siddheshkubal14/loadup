@@ -1,0 +1,41 @@
+# # loadup-frontend/Dockerfile
+
+# FROM node:18
+
+# WORKDIR /app
+
+# # Copy only package files to leverage Docker cache
+# COPY package*.json ./
+
+# # Force reinstall cleanly
+# RUN rm -rf node_modules package-lock.json && npm install --force
+
+# # Copy rest of the files
+# COPY . .
+
+# EXPOSE 5173
+
+# CMD ["npm", "run", "dev"]
+
+# Use Node.js 18 base image
+FROM node:18
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy only the package.json and lock file to install dependencies
+COPY package*.json ./
+
+# Clean install: remove lock and node_modules, then reinstall inside the container
+RUN rm -rf node_modules package-lock.json \
+  && npm install --force
+
+# Copy the rest of the application code
+COPY . .
+
+# Expose the Vite default port
+EXPOSE 5173
+
+# Start the frontend dev server
+CMD ["npm", "run", "dev", "--", "--host"]
+

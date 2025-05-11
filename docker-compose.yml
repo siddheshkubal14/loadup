@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./loadup-backend
+    image: sid0014/loadup:backend-latest
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./loadup-backend:/app
+    environment:
+      - PORT=3000
+
+  frontend:
+    build: ./loadup-frontend
+    image: sid0014/loadup:frontend-latest
+    ports:
+      - "5173:5173"
+    # DO NOT mount local node_modules — this causes binary incompatibility
+    volumes:
+      - ./loadup-frontend:/app:cached
+      - frontend_node_modules:/app/node_modules
+    depends_on:
+      - backend
+
+volumes:
+  frontend_node_modules:
