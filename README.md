@@ -33,7 +33,10 @@ This repository consists of two main parts: the **frontend** and **backend**. Th
 
 ## Known Issues
 1. Current data doesn't have any data for license, I tested with mock data for multi-filter, and it worked well.
-3. Given API https://onboarding-api-318352928563.us-central1.run.app/dashboard/application/1/talent?is_talent=true returns 404, hence used https://onboarding-api-318352928563.us-central1.run.app/dashboard/application which only gives data size of 13.
+2. Given API https://onboarding-api-318352928563.us-central1.run.app/dashboard/application/1/talent?is_talent=true returns 404, hence used https://onboarding-api-318352928563.us-central1.run.app/dashboard/application which only gives data size of 13. 
+3. Following the latest suggestion, I tested the following updated endpoint:
+https://onboarding-api-318352928563.us-central1.run.app/dashboard/application?include_failed=true&include_talented=true
+This works as expected with the current implementation seamlessly too.
 
 
 ## Directory Structure
