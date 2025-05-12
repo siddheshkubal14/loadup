@@ -107,16 +107,12 @@ The frontend is built with **React.js** and provides a user interface for managi
 
 1. Clone the repository:
 
-   ```bash
-   git clone https://github.com/siddheshkubal14/loadup.git
-   cd loadup-frontend
-   ```
+   `git clone https://github.com/siddheshkubal14/loadup.git`
+   `cd loadup-frontend`
 
 2. Install dependencies:
 
-   ```bash
-   npm install
-   ```
+   `npm install`
 
 3. Set up environment variables:
 
@@ -127,9 +123,7 @@ The frontend is built with **React.js** and provides a user interface for managi
 
 To start the frontend development server:
 
-```bash
-npm run dev
-```
+`npm run dev`
 
 The application will be available at [http://localhost:5173](http://localhost:5173).
 
@@ -142,27 +136,17 @@ The backend is a REST API built with **Node.js** and **Express.js**. It manages 
 
 1. Navigate to the `loadup-backend` directory:
 
-   ```bash
-   cd loadup-backend
-   ```
+   `cd loadup-backend`
 
 2. Install dependencies:
 
-   ```bash
-   npm install
-   ```
-
-3. Set up environment variables:
-
-   * Create a `.env` file and configure environment variables like the database connection string.
+   `npm install`
 
 ### Running the Backend
 
 To start the backend server:
 
-```bash
-npm start
-```
+`npm start`
 
 The backend API will be available at [http://localhost:3000](http://localhost:3000).
 
@@ -178,31 +162,23 @@ To deploy the frontend and backend using Docker, follow these steps:
 
    * For the frontend:
 
-     ```bash
-     cd loadup-frontend
-     docker build -t loadup-frontend .
-     ```
+     `cd loadup-frontend`
+     `docker build -t loadup-frontend .`
 
    * For the backend:
 
-     ```bash
-     cd loadup-backend
-     docker build -t loadup-backend .
-     ```
+     `cd loadup-backend`
+     `docker build -t loadup-backend .`
 
 2. **Run containers:**
 
    * For the frontend:
 
-     ```bash
-     docker run -p 5173:5173 loadup-frontend
-     ```
+     `docker run -p 5173:5173 loadup-frontend`
 
    * For the backend:
 
-     ```bash
-     docker run -p 3000:3000 loadup-backend
-     ```
+     `docker run -p 3000:3000 loadup-backend`
 
 3. **Verify deployment:**
 
@@ -215,15 +191,11 @@ You can also automate the deployment process by running the `deploy.sh` script.
 
 1. Ensure that the script has executable permissions:
 
-   ```bash
-   chmod +x deploy.sh
-   ```
+   `chmod +x deploy.sh`
 
 2. Run the script:
 
-   ```bash
-   ./deploy.sh
-   ```
+   `bash ./deploy.sh`
 
 This script handles the deployment by building and running the Docker containers for both the frontend and backend.
 
@@ -242,13 +214,13 @@ This script handles the deployment by building and running the Docker containers
 
 
 ## Handling Invalid Filters and Empty Datasets
-[Invalid-Filters]:
+1. [Invalid-Filters]:
 The API gracefully handles invalid or unsupported filters by ignoring them and returning unfiltered or partially filtered results, ensuring no internal server errors are thrown. Query validation is performed to allow only whitelisted parameters like location, license, page, and limit.
 
-The application uses `URLSearchParams` to construct query strings, ensuring that special characters (like &, =, spaces) are automatically escaped and encoded safely.
+2. The application uses `URLSearchParams` to construct query strings, ensuring that special characters (like &, =, spaces) are automatically escaped and encoded safely.
 This avoids issues with malformed URLs or rejected requests.
 
-[Empty-Datasets]:
+3. [Empty-Datasets]:
 If no applicants match the given filters, the API responds with a 200 OK status and an empty data array. This allows front-end consumers to distinguish between no results and request failures without additional logic.
 
 Pagination buttons (Previous / Next) are conditionally enabled or disabled based on the current page and result count.
