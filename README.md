@@ -26,6 +26,7 @@ This repository consists of two main parts: the **frontend** and **backend**. Th
 
   * [Deploying with Docker](#deploying-with-docker)
   * [Running the Deploy Script](#running-the-deploy-script)
+  * [Running the Deploy Script](#running-from-docker-hub-images)
 *[Handling Invalid Filters and Empty Datasets](#Handling-Invalid-Filters-and-Empty-Datasets)
 *[Architecture and Design Choices](#Architecture-and-Design-Choices)
 
@@ -225,6 +226,19 @@ You can also automate the deployment process by running the `deploy.sh` script.
    ```
 
 This script handles the deployment by building and running the Docker containers for both the frontend and backend.
+
+## Running from Docker Hub Images
+   1. Pull the Images
+      `docker pull sid0014/loadup:frontend-latest`
+      `docker pull sid0014/loadup:backend-latest`
+
+   2. Run the Containers
+      `docker run -p 3000:3000 sid0014/loadup:frontend-latest`
+      `docker run -p 5173:5173 sid0014/loadup:frontend-latest`
+
+   3. Access the App
+      Frontend: [http://localhost:5173]
+      Backend : [http://localhost:3000/healthcheck]
 
 
 ## Handling Invalid Filters and Empty Datasets
